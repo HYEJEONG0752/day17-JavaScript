@@ -11,8 +11,7 @@
 */
 
 // 4. 배열 디스트럭처링을 사용하여 변수 first와 second에 [10, 20]을 할당하는 코드를 작성하세요.
-    const numbers = [10, 20];
-    const [first, second] = numbers;
+    const [first, second] = [10, 20];
 
     console.log(first);     // 10
     console.log(second);    // 20
@@ -24,9 +23,11 @@
     console.log(name1); // Gyejin
     console.log(age);   // 28
 
-/* 6. 디스트럭처링 할당에서 기본값을 설정할 수 있나요? 
-    예
-*/
+// 6. 디스트럭처링 할당에서 기본값을 설정할 수 있나요? 
+//    예
+    const [a1, b1 = 20] = [10];
+    console.log("a1: " + a1);
+    console.log("b1: " + b1);
 
 // 7. 스프레드 연산자를 사용하여 두 배열 [1, 2]와 [3, 4]를 결합하는 코드를 작성하세요.
     const arr1 = [1, 2];
@@ -47,12 +48,13 @@
     console.log(newArr);    // [ 1, 2, 3, 4 ]
 
 // 10. 나머지 매개변수를 사용하여 여러 개의 숫자를 인자로 받아 그 합을 구하는 sum함수를 작성하세요.
-    function sum(...numbers) {
-        return numbers.reduce((acc, curr) => acc + curr, 0);
-    }
+    const sum = (...args) => {
+        return args.reduce((acc, curr) => {
+            return acc + curr;
+        }, 0);
+    };  
 
-    console.log(sum(1, 2, 3));  // 6
-
+    console.log(sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));    // 55
 // 11. 아래 함수의 결과는 무엇인가요?
     function printNumbers(first, ...rest) {
         console.log(first);
@@ -68,35 +70,22 @@
 /* 13. math.js 파일에서 add 함수를 기본 내보내기(default export)하고, main.js 파일에서 불러오는 코드 작성
     // math.js:
     export default function add(a, b) {
-        return a + b;
     }
 
     // main.js:
     import add from '.math.js';
-    console.log(add(2, 3)); // 5
-    */
+    add()
+*/
 
-/* 14. 여러 함수를 명시적 내보내가(named export)로 내보내는 예시 코드를 작성하세요.
-    // 파일이름: math.js:
-    export pi = 3.14;
-    export function add(a, b){
-        return a + b; 
-    }
-    export function subtract(a,b) {
-        return a - b;
-    }
-    */
+/* 14. 여러 함수를 명시적 내보내가(named export)로 내보내는 예시 코드를 작성하세요.:
+    export const pi = 3.14;
+    export func1 = () => {};
+    export func2 = () => {};
+*/
 
 /* 15. 아래 코드에서 subtract 함수를 별칭(alias)으로 불러오는 코드를 작성하세요.
-    // math.js:
-        export function subtract(a, b) {
-            return a - b;
-        }
-
     // main.js:
         import { subtract as subtraction } from './math.js';
-        
-        consol.log(subtraction(5, 2));  // 3
 */
 
 /* 16. 모듈 시스템에서 동적 import는 무엇을 위한 것인가요?
@@ -141,7 +130,7 @@
 
 /* 6. Promise.all은 언제 사용하나요?
     여러 Promise를 병렬로 처리하고 모두 완료되면 하나의 결과를 얻을때
- */
+*/
 
 /* 7. 이터레이터의 기본 메서드는 무엇인가요?
     next() ; 이터레이터의 다음 값을 반환
@@ -149,7 +138,7 @@
 
 /* 8. 제너레이터 함수를 정의하기 위한 키워드는 무엇인가요?
     function*
- */
+*/
 
 // 9. 아래 제너레이터 함수의 출력은 무엇인가요?
     function* generator() {
@@ -179,5 +168,5 @@
 */
 
 /* 13. Map의 메서드 중, 특정 키에 해당하는 값을 얻는 메서드는 무엇인가요?
-    get(key)
+    Map.prototype.et("key");
 */
